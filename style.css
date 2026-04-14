@@ -1,0 +1,827 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+background:#f2f2f2;
+overflow-x:hidden;
+}
+
+:root{
+--gold:#c9a24d;
+--gold-dark:#a8873a;
+--top-bg:#e9e9e9;
+--bottom-bg:#f2f2f2;
+--line-gap:8px;
+}
+
+.page{
+position:relative;
+min-height:100vh;
+overflow:hidden;
+}
+
+.top-area{
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:180px;
+background:var(--top-bg);
+z-index:0;
+}
+
+.bottom-area{
+position:absolute;
+top:180px;
+left:0;
+right:0;
+bottom:0;
+background:var(--bottom-bg);
+z-index:0;
+}
+
+.lines{
+position:absolute;
+inset:0;
+pointer-events:none;
+z-index:2;
+}
+
+.vertical{
+position:absolute;
+left:48px;
+top:0;
+bottom:0;
+display:flex;
+gap:var(--line-gap);
+}
+
+.vertical span{
+width:1.5px;
+background:var(--gold);
+}
+
+.horizontal{
+position:absolute;
+top:180px;
+left:0;
+width:100%;
+display:flex;
+flex-direction:column;
+gap:var(--line-gap);
+}
+
+.horizontal span{
+height:1.5px;
+background:var(--gold);
+}
+
+header{
+position:relative;
+z-index:3;
+padding:40px 60px 40px 120px;
+}
+
+h1{
+color:var(--gold);
+font-weight:normal;
+font-size:42px;
+margin-bottom:24px;
+}
+
+nav{
+display:flex;
+gap:48px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--gold);
+font-size:18px;
+transition:color 0.3s ease;
+}
+
+#home:target ~ header nav a[href="#home"],
+#journey:target ~ header nav a[href="#journey"],
+#competencies:target ~ header nav a[href="#competencies"],
+#future:target ~ header nav a[href="#future"],
+#project:target ~ header nav a[href="#project"]{
+color:var(--gold-dark);
+}
+
+body:not(:has(:target)) header nav a[href="#home"]{
+color:var(--gold-dark);
+}
+
+.pages{
+position:relative;
+z-index:3;
+display:flex;
+width:500vw;
+transition:transform 0.8s ease;
+}
+
+section{
+width:100vw;
+padding:80px 120px 120px 160px;
+}
+
+.main-title{
+font-size:38px;
+color:var(--gold-dark);
+font-weight:normal;
+margin-bottom:10px;
+}
+
+.sub-title{
+font-size:22px;
+color:var(--gold);
+margin-bottom:30px;
+}
+
+/* =========================
+   HOME PAGE (FIXED)
+========================= */
+
+/* INTRO */
+.intro-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:80px;
+margin-top:40px;
+}
+
+.intro-image{
+margin-top:-60px;
+}
+
+.intro-text{
+max-width:600px;
+}
+
+.intro-text p{
+font-size:18px;
+line-height:1.7;
+}
+
+.intro-image img{
+width:340px;
+height:460px;
+object-fit:cover;
+border:2px solid var(--gold);
+border-radius:6px;
+}
+
+/* SECTIONS */
+.home-sections{
+margin-top:120px;
+display:flex;
+flex-direction:column;
+gap:100px;
+}
+
+/* ROW FIX (WICHTIG) */
+.home-row{
+display:flex;
+align-items:flex-start; /* sorgt dafür, dass Titel oben startet */
+gap:70px;
+}
+
+.home-row.reverse{
+flex-direction:row-reverse;
+margin-left:0;
+margin-right:auto; /* schiebt Text sauber nach links */
+}
+}
+
+/* TEXT */
+.home-text{
+max-width:520px;
+}
+
+.home-text p{
+font-size:18px;
+line-height:1.7;
+margin-top:0; /* FIX */
+}
+
+/* TITEL (nur HOME beeinflusst) */
+#home .section-title{
+font-size:20px;
+color:var(--gold-dark);
+font-weight:normal;
+margin-bottom:6px; /* enger Abstand */
+}
+
+/* IMAGES */
+.home-image img{
+width:300px;
+height:400px;
+object-fit:cover;
+border:2px solid var(--gold);
+border-radius:6px;
+}
+
+/* MUNICH */
+.home-image-wide img{
+width:420px;
+height:260px;
+}
+
+/* JUDO */
+.judo-image img{
+    width:300px;
+    height:400px;
+    object-fit:cover; /* oder contain */
+    object-position:center top; /* oder was du brauchst */
+    border-radius:6px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+/* =========================
+   LEARNING PAGE (UNTOUCHED)
+========================= */
+
+.learning-container{
+display:flex;
+gap:80px;
+}
+
+.timeline{
+position:relative;
+padding-left:60px;
+border-left:2px solid var(--gold);
+}
+
+.timeline-item{
+position:relative;
+margin-bottom:50px;
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+left:-60px;
+top:12px;
+width:60px;
+height:2px;
+background:var(--gold);
+}
+
+.timeline-year{
+font-size:18px;
+color:var(--gold-dark);
+margin-bottom:6px;
+}
+
+.timeline-content h4{
+font-size:22px;
+font-weight:normal;
+margin-bottom:8px;
+}
+
+.timeline-content ul{
+margin-left:18px;
+}
+
+.timeline-content li{
+font-size:18px;
+line-height:1.7;
+margin-bottom:4px;
+}
+
+.timeline-images{
+display:flex;
+flex-direction:column;
+gap:40px;
+}
+
+.timeline-images img{
+width:260px;
+border:2px solid var(--gold);
+border-radius:6px;
+}
+
+.competencies-block{
+margin-top:80px;
+margin-bottom:80px;
+}
+
+.competencies-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px 80px;
+}
+
+.comp-box h4{
+font-size:22px;
+font-weight:normal;
+color:var(--gold-dark);
+margin-bottom:12px;
+}
+
+.comp-box ul{
+margin-left:18px;
+}
+
+.comp-box li{
+font-size:18px;
+line-height:1.7;
+margin-bottom:6px;
+}
+
+/* =========================
+   COMPETENCIES PAGE (NEW)
+========================= */
+
+#competencies{
+    position:relative;
+}
+
+.competency-list{
+    margin-top:60px;
+    display:flex;
+    flex-direction:column;
+    gap:70px;
+    padding-right:80px;
+}
+
+.competency-item{
+    background:#ffffff;
+    padding:32px 40px;
+    border-left:4px solid var(--gold);
+    border-radius:4px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+.competency-item h3{
+    font-size:24px;
+    font-weight:normal;
+    color:var(--gold-dark);
+    margin-bottom:12px;
+}
+
+.competency-item blockquote{
+    font-family:Georgia, serif;
+    font-size:18px;
+    color:#555;
+    margin-bottom:16px;
+    padding-left:14px;
+    border-left:2px solid var(--gold);
+}
+
+.competency-item blockquote span{
+    font-style:italic;
+}
+
+.competency-item blockquote small{
+    display:block;
+    margin-top:4px;
+    font-size:14px;
+    color:#777;
+}
+
+.competency-item p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:22px;
+    max-width:800px;
+}
+
+/* Evidence – unverändert, nur optisch verfeinert */
+
+.evidence{
+    margin-top:6px;
+}
+
+.evidence span{
+    display:block;
+    font-size:15px;
+    color:var(--gold-dark);
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.evidence ul{
+    margin-left:18px;
+}
+
+.evidence li{
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:4px;
+}
+
+/* =========================
+   FUTURE SECTION (FINAL)
+========================= */
+
+:root{
+    --gold:#c9a24d;
+    --gold-dark:#a8873a;
+}
+
+/* GRID */
+.future-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    margin-bottom:60px;
+}
+
+/* NOTES */
+.note{
+    background:#ffffff;
+    border-radius:14px;
+    padding:18px;
+    position:relative;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    display:flex;
+    flex-direction:column;
+}
+
+/* OXFORD 2x2 */
+.note-big{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+/* GOLD PIN */
+.pin{
+    width:18px;
+    height:18px;
+    background:linear-gradient(135deg, #f7e3a5, var(--gold));
+    border-radius:50%;
+    position:absolute;
+    top:10px;
+    left:12px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.35);
+    transform:rotate(-12deg);
+    z-index:10;
+}
+
+/* TITLES */
+.note-title{
+    margin-top:10px;
+    margin-bottom:6px;
+    font-weight:700;
+    color:var(--gold-dark);
+}
+
+/* TEXT */
+.note p{
+    font-size:0.9rem;
+    color:#333;
+    line-height:1.4;
+    margin-bottom:12px;
+}
+
+/* OXFORD IMAGE */
+.oxford-img{
+    width:100%;
+    height:auto;
+    border-radius:12px;
+    border:3px solid var(--gold);
+    margin-top:6px;
+}
+
+/* JUDO */
+.judo-icon{
+    width:70%;
+    margin-top:6px;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+/* IRONMAN */
+.note-ironman{
+    background:#ffffff;
+}
+.tri-icons{
+    font-size:1.3rem;
+    margin-top:6px;
+}
+
+/* AGENDA 27 */
+.agenda-list{
+    margin-top:6px;
+    padding-left:18px;
+    color:#333;
+    line-height:1.4;
+}
+.agenda-list li{
+    margin-bottom:4px;
+}
+
+/* LMU */
+.lmu-logo{
+    width:120px;
+    height:auto;
+    margin-top:6px;
+    display:block;
+}
+
+/* DRIVER’S LICENSE */
+.note-license{
+    background:#ffffff;
+}
+
+/* EMPTY TILE */
+.note-empty{
+    background:transparent;
+    box-shadow:none;
+}
+
+/* =========================
+   FINANCE BLOCK
+========================= */
+.finance-hidden{
+    display:none;
+}
+
+
+/* FINANCE LAYOUT */
+.finance-flex{
+    display:flex;
+    gap:60px;
+    align-items:flex-start;
+    margin-top:20px;
+}
+
+.finance-flex{
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+.finance-tables{
+    flex:1;
+}
+
+/* BLOCKS */
+.fin-block{
+    margin-bottom:40px;
+}
+
+.fin-block h4{
+    color:var(--gold-dark);
+    margin-bottom:10px;
+}
+
+/* INVISIBLE TABLE (4 COLUMNS) */
+.fin-row{
+    display:grid;
+    grid-template-columns: 1.2fr 0.6fr 0.8fr 2fr;
+    gap:14px;
+    padding:10px 0;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.fin-row:last-child{
+    border-bottom:none;
+}
+
+.fin-income{
+    margin-top:40px;
+    margin-bottom:20px;
+}
+
+.fin-income h4{
+    color:var(--gold-dark);
+    margin-bottom:10px;
+}
+
+
+/* DONUT CHART */
+.finance-chart{
+    width:280px;
+    position:relative;
+    text-align:center;
+}
+
+/* Donut with proportional distribution */
+.donut{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:
+        conic-gradient(
+            var(--gold) 0 30%,        /* Living costs */
+            #d4c08a 30% 45%,          /* Lifestyle costs */
+            #e8d9a8 45% 100%          /* One-time costs */
+        );
+    position:relative;
+}
+
+.donut::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:140px;
+    height:140px;
+    background:white;
+    border-radius:50%;
+    transform:translate(-50%, -50%);
+}
+
+.donut-center{
+    position:absolute;
+    top:38%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:180px;                 /* genug Platz für 2 Zeilen */
+    height:180px;                /* exakt gleich groß wie der innere Kreis */
+    display:flex;                /* perfekte Zentrierung */
+    align-items:center;          /* vertikal zentriert */
+    justify-content:center;      /* horizontal zentriert */
+    text-align:center;
+    font-size:16px;
+    line-height:1.35;
+    color:var(--gold-dark);
+    font-weight:600;
+    pointer-events:none;
+}
+
+
+/* Legend */
+.donut-legend{
+    margin-top:20px;
+    list-style:none;
+    padding:0;
+    font-size:15px;
+    color:#444;
+    text-align:left;
+}
+
+.donut-legend li{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:6px;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.gold1{ background:var(--gold); }
+.gold2{ background:#d4c08a; }
+.gold3{ background:#e8d9a8; }
+
+
+.fin-summary{
+    margin-top:40px;
+    padding:22px;
+    background:white;
+    border-left:5px solid var(--gold);
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+}
+
+.fin-summary h4{
+    color:var(--gold-dark);
+    margin-bottom:14px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    font-size:15px;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.summary-row:last-child{
+    border-bottom:none;
+}
+
+.summary-text{
+    margin-top:14px;
+    font-size:14px;
+    color:#444;
+    line-height:1.45;
+}
+/* =========================
+   PROJECT PAGE (Mindsoire)
+========================= */
+
+#project {
+    padding: 80px 120px 120px 160px;
+}
+
+.project-row {
+    display:flex;
+    align-items:flex-start;
+    gap:70px;
+    margin-top:40px;
+}
+
+.project-text {
+    max-width:900px;
+}
+
+.project-text p {
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* VIDEO + GOLD FRAME */
+.project-video {
+    margin-top: 8px;
+}
+
+.project-video video {
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.project-video.playing video {
+    border-color: var(--gold);
+}
+
+.motto-wrapper {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.motto-line {
+    width: 180px;
+    height: 2px;
+    background: var(--gold);
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+.project-motto {
+    letter-spacing: 0.18em;
+    color: var(--gold-dark);
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* ENTREPRENEURSHIP — MINIMAL LUXURY VERSION */
+.entre-section {
+    max-width: 900px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* kompakter */
+}
+
+.entre-block {
+    text-align: left;
+}
+
+.entre-mini {
+    font-size: 22px;
+    color: var(--gold-dark);
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+}
+
+.entre-block p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   PAGE SWITCH
+========================= */
+
+#home:target ~ .pages{
+transform:translateX(0);
+}
+
+#journey:target ~ .pages{
+transform:translateX(-100vw);
+}
+
+#competencies:target ~ .pages{
+transform:translateX(-200vw);
+}
+
+#future:target ~ .pages{
+transform:translateX(-300vw);
+}
+
+#project:target ~ .pages{
+transform:translateX(-400vw);
+}
+
+body:not(:has(:target)) .pages{
+transform:translateX(0);
+}
